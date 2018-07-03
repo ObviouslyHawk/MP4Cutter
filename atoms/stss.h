@@ -10,6 +10,7 @@ public:
     ~STSS();
     virtual void parse(StreamReader& stream, uint32_t& startPos);
     void prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE type=TRAK_TYPE::VIDEO);
+    uint32_t getDeltaIFrame() const;
     uint32_t startCutPos() const;
     virtual void writeAtom(StreamWriter& stream);
 protected:
@@ -21,6 +22,7 @@ private:
     uint32_t m_verFlag{0};
     uint32_t m_amountChunk{0};
     uint32_t m_startCutPos{0};
+    uint32_t m_deltaIFrame{0};
 };
 
 #endif // STSS_H

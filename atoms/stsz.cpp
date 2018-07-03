@@ -39,11 +39,11 @@ void STSZ::writeAtom(StreamWriter &stream)
     }
 }
 
-void STSZ::prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE type)
+void STSZ::prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type)
 {
     //uint32_t amountTime= endTime - begTime;
     if(type == TRAK_TYPE::VIDEO){
-        uint32_t endPos = endTime*24; /// TODO: Передать delta
+        uint32_t endPos = endTime*delta; /// TODO: Передать delta
         uint32_t countResize = m_chunkSize.size() - endPos + begTime; ///?????
         if(endPos != (m_chunkSize.size()-1)){
             m_chunkSize.erase(m_chunkSize.begin()+endPos,m_chunkSize.end());

@@ -1,7 +1,7 @@
 #ifndef PARSERINTERFACE_H
 #define PARSERINTERFACE_H
 
-#include "streamreader.h"
+#include "../streamreader.h"
 
 class ParserInterface{
 public:

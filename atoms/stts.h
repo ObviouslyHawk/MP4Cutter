@@ -9,7 +9,7 @@ public:
     STTS();
     ~STTS();
     virtual void parse(StreamReader& stream, uint32_t& startPos);
-    void prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE type=TRAK_TYPE::VIDEO);
+    void prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type=TRAK_TYPE::VIDEO);
     uint32_t newAmountChunk() const;
     virtual void writeAtom(StreamWriter& stream);
 protected:
