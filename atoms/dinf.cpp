@@ -1,9 +1,8 @@
 #include "dinf.h"
 
-DINF::DINF():Atom()
+DINF::DINF():Atom(DINF_NAME, DINF_DIG_NAME)
 {
-    setAtomTextName(DINF_NAME);
-    setAtomDigitName(DINF_DIG_NAME);
+
 }
 
 DINF::~DINF()

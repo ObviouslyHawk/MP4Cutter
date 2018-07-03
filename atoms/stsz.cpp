@@ -1,9 +1,8 @@
 #include "stsz.h"
 
-STSZ::STSZ():Atom()
+STSZ::STSZ():Atom(STSZ_NAME, STSZ_DIG_NAME)
 {
-    setAtomTextName(STSZ_NAME);
-    setAtomDigitName(STSZ_DIG_NAME);
+
 }
 
 STSZ::~STSZ()

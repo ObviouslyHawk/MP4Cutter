@@ -1,9 +1,8 @@
 #include "mdhd.h"
 
-MDHD::MDHD():Atom()
+MDHD::MDHD():Atom(MDHD_NAME, MDHD_DIG_NAME)
 {
-    setAtomTextName(MDHD_NAME);
-    setAtomDigitName(MDHD_DIG_NAME);
+
 }
 
 MDHD::~MDHD()

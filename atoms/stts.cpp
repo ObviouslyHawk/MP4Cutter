@@ -1,9 +1,8 @@
 #include "stts.h"
 
-STTS::STTS():Atom()
+STTS::STTS():Atom(STTS_NAME, STTS_DIG_NAME)
 {
-    setAtomTextName(STTS_NAME);
-    setAtomDigitName(STTS_DIG_NAME);
+
 }
 
 STTS::~STTS()

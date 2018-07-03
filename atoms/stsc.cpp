@@ -1,9 +1,8 @@
 #include "stsc.h"
 
-STSC::STSC():Atom()
+STSC::STSC():Atom(STSC_NAME, STSC_DIG_NAME)
 {
-    setAtomTextName(STSC_NAME);
-    setAtomDigitName(STSC_DIG_NAME);
+	
 }
 
 STSC::~STSC()

@@ -1,9 +1,8 @@
 #include "hdlr.h"
 
-HDLR::HDLR():Atom()
+HDLR::HDLR():Atom(HDLR_NAME, HDLR_DIG_NAME)
 {
-    setAtomTextName(HDLR_NAME);
-    setAtomDigitName(HDLR_DIG_NAME);
+
 }
 
 HDLR::~HDLR()

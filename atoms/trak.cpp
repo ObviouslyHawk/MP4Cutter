@@ -2,10 +2,8 @@
 #include "../interfaces/callbackinterface.h"
 
 using namespace std;
-TRAK::TRAK():Atom()
+TRAK::TRAK():Atom(TRAK_NAME, TRAK_DIG_NAME)
 {
-    setAtomTextName(TRAK_NAME);
-    setAtomDigitName(TRAK_DIG_NAME);
     m_tkhd = make_unique<TKHD>();
     m_mdia = make_unique<MDIA>();
     m_mdia->setCallback(this);

@@ -1,10 +1,8 @@
 #include "tkhd.h"
 #include <iomanip>
 
-TKHD::TKHD():Atom()
+TKHD::TKHD():Atom(TKHD_NAME, TKHD_DIG_NAME)
 {
-    setAtomTextName(TKHD_NAME);
-    setAtomDigitName(TKHD_DIG_NAME);
     m_data.resize(60,0);
 }
 

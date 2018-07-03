@@ -3,10 +3,8 @@
 
 using namespace std;
 
-MDIA::MDIA():Atom()
+MDIA::MDIA():Atom(MDIA_NAME, MDIA_DIG_NAME)
 {
-    setAtomTextName(MDIA_NAME);
-    setAtomDigitName(MDIA_DIG_NAME);
     m_mdhd = make_unique<MDHD>();
     m_hdlr = make_unique<HDLR>();
     m_minf = make_unique<MINF>();

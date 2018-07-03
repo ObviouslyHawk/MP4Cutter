@@ -1,9 +1,8 @@
 #include "vmhd.h"
 
-VMHD::VMHD()
+VMHD::VMHD():Atom(VMHD_NAME, VMHD_DIG_NAME)
 {
-    setAtomTextName(VMHD_NAME);
-    setAtomDigitName(VMHD_DIG_NAME);
+
 }
 
 VMHD::~VMHD()

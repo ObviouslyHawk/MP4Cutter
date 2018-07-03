@@ -1,10 +1,8 @@
 #include "mvhd.h"
 
 
-MVHD::MVHD():Atom()
+MVHD::MVHD():Atom(MVHD_NAME, MVHD_DIG_NAME)
 {
-    setAtomTextName(MVHD_NAME);
-    setAtomDigitName(MVHD_DIG_NAME);
     m_data.resize(76,0);
 }
 

@@ -81,7 +81,7 @@ struct SttsData
 class Atom : public ParserInterface, public CallbackInterface
 {
 public:
-    Atom();
+	Atom(std::string atomTextName, uint32_t atomDigitName);
     ~Atom();
     uint32_t offset() const;
     uint32_t size() const;

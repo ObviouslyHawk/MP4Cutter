@@ -3,10 +3,8 @@
 
 using namespace std;
 
-MINF::MINF():Atom()
+MINF::MINF():Atom(MINF_NAME, MINF_DIG_NAME)
 {
-    setAtomTextName(MINF_NAME);
-    setAtomDigitName(MINF_DIG_NAME);
     m_dinf = make_unique<DINF>();
     m_stbl = make_unique<STBL>();
     m_stbl->setCallback(this);
