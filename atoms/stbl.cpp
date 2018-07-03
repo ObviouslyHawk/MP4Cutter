@@ -55,9 +55,9 @@ std::pair<uint32_t, uint32_t> STBL::prepareData(uint32_t begTime, uint32_t endTi
     if(m_trakType == TRAK_TYPE::VIDEO){
 
         m_stss->prepareDataForWrite(begTime,endTime);
-        m_stsz->prepareDataForWrite(m_stss->startCutPos(),endTime);
-        m_stco->prepareDataForWrite(m_stss->startCutPos(),endTime);
-        m_stts->prepareDataForWrite(m_stss->startCutPos(),endTime);
+        m_stsz->prepareDataForWrite(m_stss->startCutPos(),endTime, m_stss->getDeltaIFrame());
+        m_stco->prepareDataForWrite(m_stss->startCutPos(),endTime, m_stss->getDeltaIFrame());
+        m_stts->prepareDataForWrite(m_stss->startCutPos(),endTime, m_stss->getDeltaIFrame());
 
         std::pair<uint32_t, uint32_t> dumpPos = m_stco->getOldOffset();
         dumpPos.second += m_stsz->getEndChunkSize();

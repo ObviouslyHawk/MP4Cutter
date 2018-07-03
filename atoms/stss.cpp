@@ -30,8 +30,9 @@ void STSS::prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE typ
 {
     //uint32_t amountTime= endTime - begTime;
     if(type == TRAK_TYPE::VIDEO){
-        uint32_t start = begTime*24; /// TODO: Передать delta
-        uint32_t finish = endTime*24;
+        m_deltaIFrame = m_offsetIFrame[1]-m_offsetIFrame[0];
+        uint32_t start = begTime*m_deltaIFrame; /// TODO: Передать delta
+        uint32_t finish = endTime*m_deltaIFrame;
         uint32_t startPos, endPos;
         uint32_t countResize{0};
         for(uint32_t i=0;i<m_offsetIFrame.size();i++){
@@ -69,6 +70,11 @@ void STSS::prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE typ
     }else{
 
     }
+}
+
+uint32_t STSS::getDeltaIFrame() const
+{
+    return m_deltaIFrame;
 }
 
 void STSS::resizeAtom(uint32_t size, DIRECT_RESIZE direction)

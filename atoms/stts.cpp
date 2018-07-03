@@ -27,11 +27,11 @@ void STTS::parse(StreamReader &stream, uint32_t &startPos)
     startPos +=m_size;
 }
 
-void STTS::prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE type)
+void STTS::prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type)
 {
     if(type == TRAK_TYPE::VIDEO){
         for(auto i=0;i<m_amount;i++){
-            m_data[i].m_sampleCount = (m_data[i].m_sampleDelta * endTime)- begTime;
+            m_data[i].m_sampleCount = (delta * endTime)- begTime;
             m_newAmountChunk = m_data[i].m_sampleCount;
         }
     }else{
