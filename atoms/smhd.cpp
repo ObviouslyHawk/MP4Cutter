@@ -1,9 +1,8 @@
 #include "smhd.h"
 
-SMHD::SMHD():Atom()
+SMHD::SMHD():Atom(SMHD_NAME, SMHD_DIG_NAME)
 {
-    setAtomTextName(SMHD_NAME);
-    setAtomDigitName(SMHD_DIG_NAME);
+
 }
 
 SMHD::~SMHD()

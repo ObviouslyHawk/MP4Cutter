@@ -2,10 +2,8 @@
 
 using namespace std;
 
-STBL::STBL():Atom()
+STBL::STBL():Atom(STBL_NAME, STBL_DIG_NAME)
 {
-    setAtomTextName(STBL_NAME);
-    setAtomDigitName(STBL_DIG_NAME);
     m_mapperAtomBuild[STCO_NAME] = STCO_DIG_NAME;
     m_mapperAtomBuild[STSC_NAME] = STSC_DIG_NAME;
     m_mapperAtomBuild[STSD_NAME] = STSD_DIG_NAME;

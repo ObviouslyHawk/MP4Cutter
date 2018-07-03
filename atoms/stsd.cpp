@@ -1,9 +1,8 @@
 #include "stsd.h"
 
-STSD::STSD():Atom()
+STSD::STSD():Atom(STSD_NAME, STSD_DIG_NAME)
 {
-    setAtomTextName(STSD_NAME);
-    setAtomDigitName(STSD_DIG_NAME);
+
 }
 
 STSD::~STSD()

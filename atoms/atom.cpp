@@ -2,9 +2,10 @@
 #include <iomanip>
 #include <iostream>
 
-Atom::Atom():ParserInterface(),CallbackInterface()
+Atom::Atom(std::string atomTextName, uint32_t atomDigitName):ParserInterface(),CallbackInterface()
 {
-
+	setAtomTextName(atomTextName);
+	setAtomDigitName(atomDigitName);
 }
 
 Atom::~Atom()

@@ -6,10 +6,8 @@
 
 using namespace std;
 
-MOOV::MOOV():Atom()
+MOOV::MOOV():Atom(MOOV_NAME, MOOV_DIG_NAME)
 {
-    setAtomTextName(MOOV_NAME);
-    setAtomDigitName(MOOV_DIG_NAME);
     m_mvhd = make_unique<MVHD>();
     m_videoTrak= make_unique<TRAK>();
     m_audioTrak= make_unique<TRAK>();

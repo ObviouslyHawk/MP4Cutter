@@ -2,10 +2,9 @@
 
 using namespace std;
 
-FTYP::FTYP():Atom()
+FTYP::FTYP():Atom(FTYP_NAME, FTYP_DIG_NAME)
 {
-    setAtomTextName(FTYP_NAME);
-    setAtomDigitName(FTYP_DIG_NAME);
+
 }
 
 FTYP::~FTYP()

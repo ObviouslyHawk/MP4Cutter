@@ -1,9 +1,8 @@
 #include "stco.h"
 
-STCO::STCO():Atom()
+STCO::STCO():Atom(STCO_NAME, STCO_DIG_NAME)
 {
-    setAtomTextName(STCO_NAME);
-    setAtomDigitName(STCO_DIG_NAME);
+
 }
 
 STCO::~STCO()
