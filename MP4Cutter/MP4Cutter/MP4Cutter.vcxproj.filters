@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="atoms">
+      <UniqueIdentifier>{1bd03d8c-ff85-4346-ac1f-e52eea2a1277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interfaces">
+      <UniqueIdentifier>{eae31f78-c129-4d5d-b22d-05f3ed2133c9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\atoms\atom.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\dinf.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\ftyp.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\hdlr.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\mdhd.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\mdia.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\minf.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\moov.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\mvhd.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\smhd.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stbl.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stco.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stsc.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stsd.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stss.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stsz.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\stts.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\tkhd.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\trak.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\atoms\vmhd.cpp">
+      <Filter>atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mp4parser.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\streamreader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\streamwriter.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\atoms\atom.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\dinf.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\ftyp.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\hdlr.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\mdhd.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\mdia.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\minf.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\moov.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\mvhd.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\smhd.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stbl.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stco.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stsc.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stsd.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stss.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stsz.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\stts.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\tkhd.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\trak.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\atoms\vmhd.h">
+      <Filter>atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\interfaces\callbackinterface.h">
+      <Filter>interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\interfaces\parserinterface.h">
+      <Filter>interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\endians.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mp4parser.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\streamreader.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\streamwriter.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\MP4Cutter.pro">
+      <Filter>Исходные файлы</Filter>
+    </None>
+  </ItemGroup>
+</Project>
