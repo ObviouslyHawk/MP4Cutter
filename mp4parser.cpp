@@ -46,7 +46,7 @@ void MP4Parser::writeOnlyVideo(StreamReader &inStream, StreamWriter &outStream)
     outStream.writeLitToBigEndian(mdatSize);
     outStream.writeAtomName(MDAT_NAME);
 
-    uint32_t BlockSize = 1024;
+    uint32_t BlockSize = 4096000;
     streamsize blockBytes = (mdatSize - OFFSET_TITLE)/BlockSize;
     streamsize blockEndBytes = (mdatSize - OFFSET_TITLE)%BlockSize;
     streamsize startPos = m_mdatInfo.first;
