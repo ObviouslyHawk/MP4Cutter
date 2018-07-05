@@ -63,6 +63,13 @@ std::pair<uint32_t, uint32_t> STBL::prepareData(uint32_t begTime, uint32_t endTi
 
     }else if(m_trakType == TRAK_TYPE::AUDIO){
         /// TODO: AUDIO PREPARE
+        m_stsz->prepareDataForWrite(begTime,endTime, m_stts->getDelta(),m_trakType);
+        m_stco->prepareDataForWriteAudio(*m_stsz.get(),begTime,endTime, m_stts->getDelta(),m_trakType);
+        m_stts->prepareDataForWrite(begTime,endTime,m_stsz->getAmountChunks(),m_trakType);
+        m_stsc->prepareDataForWriteAudio(*m_stsz.get(),begTime,endTime, m_stts->getDelta(),m_trakType);
+        std::pair<uint32_t, uint32_t> dumpPos = m_stco->getOldOffset();
+        dumpPos.second += m_stsz->getEndChunkSize();
+        return dumpPos;
     }else{
         exit(2);
     }
@@ -81,7 +88,11 @@ void STBL::writeAtom(StreamWriter &stream)
         m_stco->writeAtom(stream);
         m_stsz->writeAtom(stream);
     } else if(m_trakType == TRAK_TYPE::AUDIO){
-
+        m_stsc->writeAtom(stream);
+        m_stts->writeAtom(stream);
+        m_stsd->writeAtom(stream);
+        m_stco->writeAtom(stream);
+        m_stsz->writeAtom(stream);
     }
 }
 

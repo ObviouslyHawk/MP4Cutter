@@ -1,4 +1,5 @@
 #include "stco.h"
+#include "stsz.h"
 
 STCO::STCO():Atom(STCO_NAME, STCO_DIG_NAME)
 {
@@ -46,6 +47,39 @@ void STCO::prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delt
         oldOffset = tempOffset;
     }
     uint32_t resizeAmount = countResize*BYTE32; // ?
+    m_size -=resizeAmount;
+    resizeAtom(resizeAmount,DIRECT_RESIZE::DECREASED);
+}
+
+void STCO::prepareDataForWriteAudio(const STSZ &stsz, uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type)
+{
+    float endIntPart;
+    float startIntPart;
+
+    modf(((begTime * 16000.0)/delta)/4.0f,&startIntPart);
+    modf(((endTime * 16000.0)/delta)/4.0f,&endIntPart);
+    uint32_t startPos = static_cast<uint32_t>(startIntPart);
+    uint32_t endPos = static_cast<uint32_t>(endIntPart);
+
+    /// логика пересчета размера
+    uint32_t countResize = m_chunkOffset.size();// - endPos + startPos;
+    m_startCutOffset = m_chunkOffset[startPos-1];
+    m_endCutOffset = m_chunkOffset[endPos-1];
+    uint32_t oldOffset = m_chunkOffset[startPos-2];
+    if(endPos < (m_chunkOffset.size()-1)){
+        m_chunkOffset.erase(m_chunkOffset.begin()+endPos,m_chunkOffset.end());
+    }
+    if(startPos > 0){
+        m_chunkOffset.erase(m_chunkOffset.begin(),m_chunkOffset.begin()+startPos-1);
+    }
+
+    m_chunkOffset[0] -= oldOffset;
+    for(uint32_t i=1;i<m_chunkOffset.size();i++){
+        m_chunkOffset[i] =m_chunkOffset[i] - oldOffset;
+    }
+    uint32_t resizeAmount = (countResize - m_chunkOffset.size())*BYTE32; // ?
+    std::pair<uint32_t,uint32_t> firstChunkOffset = stsz.getOffsetsStartPos();
+    m_chunkOffset[0]+= firstChunkOffset.second;
     m_size -=resizeAmount;
     resizeAtom(resizeAmount,DIRECT_RESIZE::DECREASED);
 }

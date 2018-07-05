@@ -34,6 +34,10 @@ void STTS::prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delt
             m_newAmountChunk = m_data[i].m_sampleCount;
         }
     }else{
+        for(auto i=0;i<m_amount;i++){
+            m_data[i].m_sampleCount = delta;
+            m_newAmountChunk = m_data[i].m_sampleCount;
+        }
 
     }
 }
@@ -58,4 +62,9 @@ void STTS::writeAtom(StreamWriter &stream)
         stream.writeLitToBigEndian( m_data[i].m_sampleCount);
         stream.writeLitToBigEndian( m_data[i].m_sampleDelta);
     }
+}
+
+uint32_t STTS::getDelta() const
+{
+    return m_data[0].m_sampleDelta;
 }

@@ -2,6 +2,7 @@
 #define STCO_H
 #include "atom.h"
 
+class STSZ;
 class STCO:public Atom
 {
 public:
@@ -9,6 +10,7 @@ public:
     ~STCO();
     virtual void parse(StreamReader& stream, uint32_t& startPos);
     void prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta,TRAK_TYPE type=TRAK_TYPE::VIDEO);
+    void prepareDataForWriteAudio(const STSZ& stsz, uint32_t begTime, uint32_t endTime, uint32_t delta,TRAK_TYPE type=TRAK_TYPE::VIDEO);
     std::pair<uint32_t,uint32_t> getOldOffset() const;
     virtual void writeAtom(StreamWriter& stream);
 protected:

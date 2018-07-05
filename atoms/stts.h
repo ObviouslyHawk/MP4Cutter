@@ -12,6 +12,7 @@ public:
     void prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type=TRAK_TYPE::VIDEO);
     uint32_t newAmountChunk() const;
     virtual void writeAtom(StreamWriter& stream);
+    uint32_t getDelta() const;
 protected:
     virtual void resizeAtom(uint32_t size, DIRECT_RESIZE direction);
 

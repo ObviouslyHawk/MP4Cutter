@@ -1,4 +1,6 @@
 #include "stsc.h"
+#include "stsz.h"
+#include <math.h>
 
 STSC::STSC():Atom(STSC_NAME, STSC_DIG_NAME)
 {
@@ -36,6 +38,42 @@ void STSC::prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE typ
     }
 }
 
+void STSC::prepareDataForWriteAudio(const STSZ &stsz, uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type)
+{
+    std::pair<uint32_t,uint32_t> startPos = stsz.getOffsetsStartPos();
+    std::pair<uint32_t,uint32_t> endPos = stsz.getOffsetsEndPos();
+    int32_t size = m_data.size();
+    if(startPos.first!=0){
+        StscData oldData = m_data[0];
+        m_data[0].m_firstChunk=1;
+        m_data[0].m_samplesPerChunk= 4 - startPos.first;
+        m_data[0].m_samplesIndex=1;
+        oldData.m_firstChunk = 1;
+        oldData.m_samplesPerChunk = 4;
+        oldData.m_samplesIndex = 1;
+        m_data.push_back(oldData);
+    }
+    if(endPos.first!=3){
+        StscData data;
+        data.m_firstChunk = 1;
+        data.m_samplesPerChunk = startPos.first+1;
+        data.m_samplesIndex = 1;
+        m_data.push_back(data);
+    }
+    int32_t resize = size - m_data.size();
+    if(resize == 0)
+        return;
+    uint32_t atomResize = (abs(size)*3*4);
+    if(resize<0){
+        m_size += atomResize;
+        resizeAtom(atomResize,DIRECT_RESIZE::INCREASED);
+    }else{
+        m_size -=atomResize;
+        resizeAtom(atomResize,DIRECT_RESIZE::DECREASED);
+    }
+
+}
+
 void STSC::writeAtom(StreamWriter &stream)
 {
     stream.writeLitToBigEndian(m_size);
@@ -51,6 +89,6 @@ void STSC::writeAtom(StreamWriter &stream)
 
 void STSC::resizeAtom(uint32_t size, DIRECT_RESIZE direction)
 {
-
+    callback()->resizeAtom(size,direction);
 }
 
