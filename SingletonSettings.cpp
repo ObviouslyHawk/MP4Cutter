@@ -77,3 +77,34 @@ uint32_t SingletonSettings::getDeltaAudio() {
 uint32_t SingletonSettings::getDeltaVideo() {
 	return m_deltaVideo;
 }
+
+void SingletonSettings::setBeginOffsetAudio(uint32_t offset) {
+	m_beginOffsetAudio = offset;
+}
+
+void SingletonSettings::setEndOffsetAudio(uint32_t offset) {
+	m_endOffsetAudio = offset;
+}
+
+void SingletonSettings::setBeginOffsetVideo(uint32_t offset) {
+	m_beginOffsetVideo = offset;
+}
+void SingletonSettings::setEndOffsetVideo(uint32_t offset) {
+	m_endOffsetVideo = offset;
+}
+
+uint32_t SingletonSettings::getBeginOffsetAudio() {
+	return m_beginOffsetAudio;
+}
+
+uint32_t SingletonSettings::getEndOffsetAudio() {
+	return m_endOffsetAudio;
+}
+
+uint32_t SingletonSettings::getBeginOffsetVideo() {
+	return m_beginOffsetVideo;
+}
+
+uint32_t SingletonSettings::getEndOffsetVideo() {
+	return m_endOffsetVideo;
+}

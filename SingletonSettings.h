@@ -22,7 +22,13 @@ private:
 		*pm_timeScaleAudio{ nullptr },
 
 		m_deltaAudio{ 0 },
-		m_deltaVideo{ 0 };
+		m_deltaVideo{ 0 },
+
+		m_beginOffsetAudio{ 0 },
+		m_endOffsetAudio{ 0 },
+
+		m_beginOffsetVideo{ 0 },
+		m_endOffsetVideo{ 0 };
 
 public:
 	static SingletonSettings& getInstance();
@@ -51,7 +57,18 @@ public:
 
 	uint32_t getScaledBeginTimeAudio();
 	uint32_t getScaledEndTimeAudio();
+	
+	void setBeginOffsetAudio(uint32_t offset);
+	void setEndOffsetAudio(uint32_t offset);
 
+	void setBeginOffsetVideo(uint32_t offset);
+	void setEndOffsetVideo(uint32_t offset);
+
+	uint32_t getBeginOffsetAudio();
+	uint32_t getEndOffsetAudio();
+
+	uint32_t getBeginOffsetVideo();
+	uint32_t getEndOffsetVideo();
 };
 
 #endif
