@@ -27,18 +27,18 @@ private:
 public:
 	static SingletonSettings& getInstance();
 
-	void setDeltaAudio(uint32_t);
-	void setDeltaVideo(uint32_t);
+	void setDeltaAudio(uint32_t delta);
+	void setDeltaVideo(uint32_t delta);
 
 	uint32_t getDeltaAudio();
 	uint32_t getDeltaVideo();
 
-	void setBeginTime(uint32_t);
-	void setEndTime(uint32_t);
-	void setPeriodTime(uint32_t, uint32_t);
+	void setBeginTime(uint32_t time);
+	void setEndTime(uint32_t time);
+	void setPeriodTime(uint32_t begTime, uint32_t endTime);
 
-	void setTimeScaleAudio(uint32_t&);
-	void setTimeScaleVideo(uint32_t&);
+	void setTimeScaleAudio(const uint32_t &timeScale);
+	void setTimeScaleVideo(const uint32_t &timeScale);
 
 	uint32_t getBeginTime();
 	uint32_t getEndTime();
