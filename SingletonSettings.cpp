@@ -42,13 +42,13 @@ uint32_t SingletonSettings::getScaledEndTimeAudio() {
 	return m_scaledEndTimeAudio;
 }
 
-void SingletonSettings::setTimeScaleAudio(const uint32_t &timeScale) {
+void SingletonSettings::setTimeScaleAudio(uint32_t &timeScale) {
 	pm_timeScaleAudio = &timeScale;
 	m_scaledBeginTimeAudio = *pm_timeScaleAudio * m_beginTime;
 	m_scaledEndTimeAudio = *pm_timeScaleAudio * m_endTime;
 }
 
-void SingletonSettings::setTimeScaleVideo(const uint32_t &timeScale) {
+void SingletonSettings::setTimeScaleVideo(uint32_t &timeScale) {
 	pm_timeScaleVideo = &timeScale;
 	m_scaledBeginTimeVideo = *pm_timeScaleVideo * m_beginTime;
 	m_scaledEndTimeVideo = *pm_timeScaleVideo * m_endTime;

@@ -43,8 +43,8 @@ public:
 	void setEndTime(uint32_t time);
 	void setPeriodTime(uint32_t begTime, uint32_t endTime);
 
-	void setTimeScaleAudio(const uint32_t &timeScale);
-	void setTimeScaleVideo(const uint32_t &timeScale);
+	void setTimeScaleAudio(uint32_t &timeScale);
+	void setTimeScaleVideo(uint32_t &timeScale);
 
 	uint32_t getBeginTime();
 	uint32_t getEndTime();
