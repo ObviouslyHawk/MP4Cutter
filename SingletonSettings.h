@@ -2,6 +2,7 @@
 #define SINGLETONSETTINGS_H
 
 #include <iostream>
+#include <vector>
 
 class SingletonSettings
 {
@@ -30,6 +31,8 @@ private:
 		m_beginOffsetVideo{ 0 },
 		m_endOffsetVideo{ 0 };
 
+	std::vector<uint32_t> *pm_chunkOffsetAudio{ nullptr },
+		*pm_chunkOffsetVideo{ nullptr };
 public:
 	static SingletonSettings& getInstance();
 
@@ -69,6 +72,12 @@ public:
 
 	uint32_t getBeginOffsetVideo();
 	uint32_t getEndOffsetVideo();
+
+	void setArrayChunkOffsetAudio(std::vector<uint32_t> &arrayChunkOffset);
+	void setArrayChunkOffsetVideo(std::vector<uint32_t> &arrayChunkOffset);
+
+	std::vector<uint32_t> getArrayChunkOffsetAudio();
+	std::vector<uint32_t> getArrayChunkOffsetVideo();
 };
 
 #endif

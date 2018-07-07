@@ -108,3 +108,19 @@ uint32_t SingletonSettings::getBeginOffsetVideo() {
 uint32_t SingletonSettings::getEndOffsetVideo() {
 	return m_endOffsetVideo;
 }
+
+void SingletonSettings::setArrayChunkOffsetAudio(std::vector<uint32_t> &arrayChunkOffset) {
+	pm_chunkOffsetAudio = &arrayChunkOffset;
+}
+
+void SingletonSettings::setArrayChunkOffsetVideo(std::vector<uint32_t> &arrayChunkOffset) {
+	pm_chunkOffsetVideo = &arrayChunkOffset;
+}
+
+std::vector<uint32_t> SingletonSettings::getArrayChunkOffsetAudio() {
+	return *pm_chunkOffsetAudio;
+}
+
+std::vector<uint32_t> SingletonSettings::getArrayChunkOffsetVideo() {
+	return *pm_chunkOffsetVideo;
+}
