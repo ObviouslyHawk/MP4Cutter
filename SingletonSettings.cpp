@@ -124,3 +124,36 @@ std::vector<uint32_t> SingletonSettings::getArrayChunkOffsetAudio() {
 std::vector<uint32_t> SingletonSettings::getArrayChunkOffsetVideo() {
 	return *pm_chunkOffsetVideo;
 }
+
+
+void SingletonSettings::setIDBeginChunkAudio(uint32_t idChunk) {
+	m_idBeginChunkAudio = idChunk;
+}
+
+void SingletonSettings::setIDEndChunkAudio(uint32_t idChunk) {
+	m_idEndChunkAudio = idChunk;
+}
+
+void SingletonSettings::setIDBeginChunkVideo(uint32_t idChunk) {
+	m_idBeginChunkVideo = idChunk;
+}
+
+void SingletonSettings::setIDEndChunkVideo(uint32_t idChunk) {
+	m_idEndChunkVideo = idChunk;
+}
+
+uint32_t SingletonSettings::getIDBeginChunkAudio() {
+	return m_idBeginChunkAudio;
+}
+
+uint32_t SingletonSettings::getIDEndChunkAudio() {
+	return m_idEndChunkAudio;
+}
+
+uint32_t SingletonSettings::getIDBeginChunkVideo() {
+	return m_idBeginChunkVideo;
+}
+
+uint32_t SingletonSettings::getIDEndChunkVideo() {
+	return m_idEndChunkVideo;
+}

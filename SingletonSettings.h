@@ -29,7 +29,13 @@ private:
 		m_endOffsetAudio{ 0 },
 
 		m_beginOffsetVideo{ 0 },
-		m_endOffsetVideo{ 0 };
+		m_endOffsetVideo{ 0 },
+
+		m_idBeginChunkVideo{ 0 },
+		m_idEndChunkVideo{ 0 },
+
+		m_idBeginChunkAudio{ 0 },
+		m_idEndChunkAudio{ 0 };
 
 	std::vector<uint32_t> *pm_chunkOffsetAudio{ nullptr },
 		*pm_chunkOffsetVideo{ nullptr };
@@ -78,6 +84,18 @@ public:
 
 	std::vector<uint32_t> getArrayChunkOffsetAudio();
 	std::vector<uint32_t> getArrayChunkOffsetVideo();
+
+	void setIDBeginChunkAudio(uint32_t idChunk);
+	void setIDEndChunkAudio(uint32_t idChunk);
+
+	void setIDBeginChunkVideo(uint32_t idChunk);
+	void setIDEndChunkVideo(uint32_t idChunk);
+
+	uint32_t getIDBeginChunkAudio();
+	uint32_t getIDEndChunkAudio();
+
+	uint32_t getIDBeginChunkVideo();
+	uint32_t getIDEndChunkVideo();
 };
 
 #endif
