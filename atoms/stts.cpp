@@ -1,4 +1,5 @@
 #include "stts.h"
+#include "SingletonSettings.h"
 
 STTS::STTS():Atom(STTS_NAME, STTS_DIG_NAME)
 {
@@ -23,6 +24,12 @@ void STTS::parse(StreamReader &stream, uint32_t &startPos)
         m_data[i].m_sampleCount=stream.readBigEndianUInt32();
         m_data[i].m_sampleDelta=stream.readBigEndianUInt32();
     }
+
+    if(m_type == TRAK_TYPE::VIDEO){
+        SingletonSettings::getInstance().setDeltaVideo(m_data[0].m_sampleDelta);
+    }else{
+        SingletonSettings::getInstance().setDeltaAudio(m_data[0].m_sampleDelta);
+    }
     startPos +=m_size;
 }
 
@@ -46,6 +53,11 @@ void STTS::resizeAtom(uint32_t size, DIRECT_RESIZE direction)
 uint32_t STTS::newAmountChunk() const
 {
     return m_newAmountChunk;
+}
+
+void STTS::setTrakType(TRAK_TYPE type)
+{
+    m_type = type;
 }
 
 void STTS::writeAtom(StreamWriter &stream)

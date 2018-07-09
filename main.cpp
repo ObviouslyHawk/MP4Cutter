@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     //QCoreApplication a(argc, argv);
     //StreamReader reader("D:/asklab/video/video_2018_05_30_20-21-01.mp4");
-    StreamReader reader("D:/myFile.mp4");
+    StreamReader reader("D:/file_03_05_2015_23-27-38.mp4");
     if (reader.openStream())
     {
         MP4Parser parser;

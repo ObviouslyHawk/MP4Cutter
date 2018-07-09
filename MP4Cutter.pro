@@ -37,7 +37,8 @@ SOURCES += main.cpp \
     atoms/vmhd.cpp \
     mp4parser.cpp \
     atoms/ftyp.cpp \
-    streamwriter.cpp
+    streamwriter.cpp \
+    SingletonSettings.cpp
 
 HEADERS += \
     endians.h \
@@ -65,4 +66,5 @@ HEADERS += \
     interfaces/parserinterface.h \
     mp4parser.h \
     atoms/ftyp.h \
-    streamwriter.h
+    streamwriter.h \
+    SingletonSettings.h

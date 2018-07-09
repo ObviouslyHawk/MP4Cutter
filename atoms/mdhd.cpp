@@ -1,4 +1,5 @@
 #include "mdhd.h"
+#include "SingletonSettings.h"
 
 MDHD::MDHD():Atom(MDHD_NAME, MDHD_DIG_NAME)
 {
@@ -29,6 +30,14 @@ void MDHD::parse(StreamReader &stream, uint32_t &startPos)
 void MDHD::setNewDuration(uint32_t time)
 {
     m_duration = time * m_timeScale;
+}
+
+void MDHD::setTrakType(TRAK_TYPE type)
+{
+    m_type = type;
+    if(type == TRAK_TYPE::AUDIO){
+        SingletonSettings::getInstance().setTimeScaleAudio(m_timeScale);
+    }
 }
 
 void MDHD::writeAtom(StreamWriter &stream)

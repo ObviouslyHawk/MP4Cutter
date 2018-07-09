@@ -1,4 +1,5 @@
 #include "stss.h"
+#include "SingletonSettings.h"
 
 STSS::STSS():Atom(STSS_NAME, STSS_DIG_NAME)
 {
@@ -22,6 +23,7 @@ void STSS::parse(StreamReader &stream, uint32_t &startPos)
     for(auto i=0;i<m_amountChunk;i++){
         m_offsetIFrame[i]=stream.readBigEndianUInt32();
     }
+    SingletonSettings::getInstance().setDeltaIFrame(m_offsetIFrame[1]-m_offsetIFrame[0]);
     startPos +=m_size;
 }
 
@@ -57,6 +59,7 @@ void STSS::prepareDataForWrite(uint32_t begTime, uint32_t endTime, TRAK_TYPE typ
         }
 
         m_startCutPos = m_offsetIFrame[startPos]-1;//-1;
+        SingletonSettings::getInstance().setIDBeginChunkVideo(m_startCutPos);
         countResize = m_offsetIFrame.size() - endPos + startPos;
         if(endPos != (m_offsetIFrame.size()-1)){
             m_offsetIFrame.erase(m_offsetIFrame.begin()+(endPos-startPos),m_offsetIFrame.end());

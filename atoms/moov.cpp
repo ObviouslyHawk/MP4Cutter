@@ -3,7 +3,7 @@
 #include "../interfaces/callbackinterface.h"
 #include <memory>
 #include <iostream>
-
+#include "SingletonSettings.h"
 using namespace std;
 
 MOOV::MOOV():Atom(MOOV_NAME, MOOV_DIG_NAME)
@@ -68,7 +68,7 @@ void MOOV::parse(StreamReader &stream, uint32_t& startPos)
 std::pair<uint32_t, uint32_t> MOOV::prepareData(uint32_t begTime, uint32_t endTime)
 {
     m_size -=m_audioTrak->size();
-    m_mvhd->setNewDuration(endTime-begTime);
+    m_mvhd->setNewDuration(SingletonSettings::getInstance().getNewDuration());
     std::pair<uint32_t, uint32_t> data = m_videoTrak->prepareData(begTime,endTime);
     return data;
 }

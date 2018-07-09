@@ -1,5 +1,6 @@
 #include "tkhd.h"
 #include <iomanip>
+#include "SingletonSettings.h"
 
 TKHD::TKHD():Atom(TKHD_NAME, TKHD_DIG_NAME)
 {
@@ -31,7 +32,7 @@ void TKHD::parse(StreamReader &stream, uint32_t &startPos)
 
 void TKHD::setNewDuration(uint32_t time)
 {
-    m_duration = time * 600; // для универсальности передавать time scale
+    m_duration = time * SingletonSettings::getInstance().getTimeScaleVideo(); // для универсальности передавать time scale
 }
 
 void TKHD::writeAtom(StreamWriter &stream)
@@ -46,3 +47,4 @@ void TKHD::writeAtom(StreamWriter &stream)
     stream.writeLitToBigEndian(m_duration);
     stream.write(&(m_data[0]),m_data.size());
 }
+

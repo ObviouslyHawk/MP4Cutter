@@ -9,4 +9,6 @@ public:
     virtual ~ParserInterface(){}
     virtual void parse(StreamReader& stream, uint32_t& startPos)=0;
 };
+
+
 #endif // PARSERINTERFACE_H

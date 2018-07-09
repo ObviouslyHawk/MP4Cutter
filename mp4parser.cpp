@@ -1,5 +1,7 @@
 #include "mp4parser.h"
 #include <iostream>
+#include "SingletonSettings.h"
+
 using namespace std;
 
 MP4Parser::MP4Parser()
@@ -34,6 +36,7 @@ void MP4Parser::parse(StreamReader &stream)
 
 void MP4Parser::prepareData(uint32_t begTime, uint32_t endTime)
 {
+    SingletonSettings::getInstance().setPeriodTime(begTime,endTime);
     m_mdatInfo = m_moov->prepareData(begTime,endTime);
     //return data;
 }

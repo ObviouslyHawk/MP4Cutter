@@ -1,5 +1,5 @@
 #include "stco.h"
-
+#include "SingletonSettings.h"
 STCO::STCO():Atom(STCO_NAME, STCO_DIG_NAME)
 {
 
@@ -27,27 +27,35 @@ void STCO::parse(StreamReader &stream, uint32_t &startPos)
 
 void STCO::prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type)
 {
-    uint32_t endPos = endTime*delta;
-    uint32_t countResize = m_chunkOffset.size() - endPos + begTime;
-    m_startCutOffset = m_chunkOffset[begTime];
-    m_endCutOffset = m_chunkOffset[endPos-1];
-    if(endPos < (m_chunkOffset.size()-1)){
-        m_chunkOffset.erase(m_chunkOffset.begin()+endPos,m_chunkOffset.end());
+    if(type == TRAK_TYPE::VIDEO){
+        SingletonSettings& sing = SingletonSettings::getInstance();
+        sing.setArrayChunkOffsetVideo(m_chunkOffset);
+        uint32_t endPos = endTime*delta;
+        uint32_t countResize = m_chunkOffset.size() - endPos + begTime;
+        m_startCutOffset = m_chunkOffset[begTime];
+        sing.setBeginOffsetVideo(m_startCutOffset);
+        m_endCutOffset = m_chunkOffset[endPos-1];
+        sing.setEndOffsetVideo(m_endCutOffset);
+        if(endPos < (m_chunkOffset.size()-1)){
+            m_chunkOffset.erase(m_chunkOffset.begin()+endPos,m_chunkOffset.end());
+        }
+        if(begTime > 0){
+            m_chunkOffset.erase(m_chunkOffset.begin(),m_chunkOffset.begin()+begTime);
+        }
+        uint32_t oldOffset = m_chunkOffset[0];
+        uint32_t tempOffset{0};
+        m_chunkOffset[0] = 40;
+        for(uint32_t i=1;i<m_chunkOffset.size();i++){
+            tempOffset = m_chunkOffset[i];
+            m_chunkOffset[i] =(m_chunkOffset[i] - oldOffset)+m_chunkOffset[i-1];
+            oldOffset = tempOffset;
+        }
+        uint32_t resizeAmount = countResize*BYTE32; // ?
+        m_size -=resizeAmount;
+        resizeAtom(resizeAmount,DIRECT_RESIZE::DECREASED);
+    }else{
+
     }
-    if(begTime > 0){
-        m_chunkOffset.erase(m_chunkOffset.begin(),m_chunkOffset.begin()+begTime);
-    }
-    uint32_t oldOffset = m_chunkOffset[0];
-    uint32_t tempOffset{0};
-    m_chunkOffset[0] = 40;
-    for(uint32_t i=1;i<m_chunkOffset.size();i++){
-        tempOffset = m_chunkOffset[i];
-        m_chunkOffset[i] =(m_chunkOffset[i] - oldOffset)+m_chunkOffset[i-1];
-        oldOffset = tempOffset;
-    }
-    uint32_t resizeAmount = countResize*BYTE32; // ?
-    m_size -=resizeAmount;
-    resizeAtom(resizeAmount,DIRECT_RESIZE::DECREASED);
 }
 
 std::pair<uint32_t, uint32_t> STCO::getOldOffset() const

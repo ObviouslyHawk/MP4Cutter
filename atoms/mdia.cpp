@@ -26,6 +26,7 @@ void MDIA::parse(StreamReader &stream, uint32_t &startPos)
     m_mdhd->parse(stream,pos);
     m_hdlr->parse(stream,pos);
     m_minf->setTrakType(m_hdlr->getTrakType());
+    m_mdhd->setTrakType(getTrakType());
     m_minf->parse(stream,pos);
     startPos += m_size;
 }

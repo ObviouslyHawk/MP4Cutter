@@ -1,4 +1,5 @@
 #include "stbl.h"
+#include "SingletonSettings.h"
 
 using namespace std;
 
@@ -59,6 +60,7 @@ std::pair<uint32_t, uint32_t> STBL::prepareData(uint32_t begTime, uint32_t endTi
 
         std::pair<uint32_t, uint32_t> dumpPos = m_stco->getOldOffset();
         dumpPos.second += m_stsz->getEndChunkSize();
+
         return dumpPos;
 
     }else if(m_trakType == TRAK_TYPE::AUDIO){
@@ -71,6 +73,7 @@ std::pair<uint32_t, uint32_t> STBL::prepareData(uint32_t begTime, uint32_t endTi
 
 void STBL::writeAtom(StreamWriter &stream)
 {
+    SingletonSettings& gig = SingletonSettings::getInstance();
     stream.writeLitToBigEndian(m_size);
     stream.writeAtomName(STBL_NAME);
     if(m_trakType == TRAK_TYPE::VIDEO){
@@ -126,6 +129,7 @@ void STBL::buildAndParseAtom(std::string atomName, StreamReader &stream, uint32_
     case STTS_DIG_NAME:
         m_stts = make_unique<STTS>();
         m_stts->setCallback(this);
+        m_stts->setTrakType(m_trakType);
         m_stts->parse(stream,startPos);
         break;
     default:

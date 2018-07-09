@@ -5,7 +5,7 @@
 Atom::Atom(std::string atomTextName, uint32_t atomDigitName):ParserInterface(),CallbackInterface()
 {
 	setAtomTextName(atomTextName);
-	setAtomDigitName(atomDigitName);
+    setAtomDigitName(atomDigitName);
 }
 
 Atom::~Atom()
