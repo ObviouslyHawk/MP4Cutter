@@ -77,9 +77,11 @@ void STCO::prepareDataForWriteAudio(const STSZ &stsz, uint32_t begTime, uint32_t
     for(uint32_t i=1;i<m_chunkOffset.size();i++){
         m_chunkOffset[i] =m_chunkOffset[i] - oldOffset;
     }
+
     uint32_t resizeAmount = (countResize - m_chunkOffset.size())*BYTE32; // ?
     std::pair<uint32_t,uint32_t> firstChunkOffset = stsz.getOffsetsStartPos();
     m_chunkOffset[0]+= firstChunkOffset.second;
+    m_startCutOffset += firstChunkOffset.second;
     m_size -=resizeAmount;
     resizeAtom(resizeAmount,DIRECT_RESIZE::DECREASED);
 }
