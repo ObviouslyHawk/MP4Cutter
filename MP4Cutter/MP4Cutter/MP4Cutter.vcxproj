@@ -137,6 +137,7 @@
     <ClCompile Include="..\..\atoms\vmhd.cpp" />
     <ClCompile Include="..\..\main.cpp" />
     <ClCompile Include="..\..\mp4parser.cpp" />
+    <ClCompile Include="..\..\SingletonSettings.cpp" />
     <ClCompile Include="..\..\streamreader.cpp" />
     <ClCompile Include="..\..\streamwriter.cpp" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="..\..\interfaces\callbackinterface.h" />
     <ClInclude Include="..\..\interfaces\parserinterface.h" />
     <ClInclude Include="..\..\mp4parser.h" />
+    <ClInclude Include="..\..\SingletonSettings.h" />
     <ClInclude Include="..\..\streamreader.h" />
     <ClInclude Include="..\..\streamwriter.h" />
   </ItemGroup>

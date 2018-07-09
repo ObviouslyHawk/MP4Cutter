@@ -85,6 +85,9 @@
     <ClCompile Include="..\..\streamwriter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\SingletonSettings.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\atoms\atom.h">
@@ -163,6 +166,9 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="..\..\streamwriter.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SingletonSettings.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
