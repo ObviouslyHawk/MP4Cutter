@@ -27,7 +27,7 @@ void STCO::parse(StreamReader &stream, uint32_t &startPos)
 
 void STCO::prepareDataForWrite(uint32_t begTime, uint32_t endTime, uint32_t delta, TRAK_TYPE type)
 {
-    uint32_t endPos = endTime*delta;
+    uint32_t endPos =  (endTime*delta)+delta; ////endTime*delta
     uint32_t countResize = m_chunkOffset.size() - endPos + begTime;
     m_startCutOffset = m_chunkOffset[begTime];
     m_endCutOffset = m_chunkOffset[endPos-1];
